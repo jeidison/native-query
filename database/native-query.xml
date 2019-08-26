@@ -1,0 +1,5 @@
+<querys>
+    <query name="tab1">
+        SELECT * FROM TAB1 WHERE PAR1 = ?
+    </query>
+</querys>
