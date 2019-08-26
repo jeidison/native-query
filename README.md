@@ -1,6 +1,6 @@
-# Install
 
-# install with composer
+
+# Installation
 
 ```bash
 $ composer require jeidison/native-query
@@ -11,6 +11,7 @@ $ composer require jeidison/native-query
 ```bash
 $ php artisan vendor:publish --provider="Jeidison\NativeQuery\Providers\NativeQueryServiceProvider"
 ```
+This will add the nativequery.php file in your config directory with the following contents:
 
 ```php
 return [
@@ -18,6 +19,7 @@ return [
     'type' => Jeidison\NativeQuery\Enums\FileType::PHP,
 ];
 ```
+And this will add the native-query.xml file in your config directory with the following contents:
 
 # SQL in file XML
 
@@ -26,6 +28,8 @@ return [
     SELECT * FROM TAB1 WHERE PAR1 = ?
 </query>
 ```
+
+And this will add the native-query.php file in your config directory with the following contents:
 # SQL in file PHP
 
 ```php
