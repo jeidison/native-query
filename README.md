@@ -19,7 +19,7 @@ return [
     'type' => Jeidison\NativeQuery\Enums\FileType::PHP,
 ];
 ```
-And this will add the native-query.xml file in your config directory with the following contents:
+And this will add the native-query.xml file in your database directory with the following contents:
 
 # SQL in file XML
 
@@ -29,7 +29,7 @@ And this will add the native-query.xml file in your config directory with the fo
 </query>
 ```
 
-And this will add the native-query.php file in your config directory with the following contents:
+And this will add the native-query.php file in your database directory with the following contents:
 # SQL in file PHP
 
 ```php
