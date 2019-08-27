@@ -93,7 +93,7 @@ class NativeQuery
     private function toObject($results)
     {
         if (count($results) == 1) {
-            return $this->hydrateObject($results[0]);
+            return collect()->push($this->hydrateObject($results[0]));
         }
         $listObj = collect();
         foreach ($results as $result) {
