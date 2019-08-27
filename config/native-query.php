@@ -1,6 +1,6 @@
 <?php
 
 return array(
-    'path-sql' => database_path('native-query'),
+    'base_path' => database_path('native-query'),
     'type' => Jeidison\NativeQuery\Enums\FileType::PHP,
 );
