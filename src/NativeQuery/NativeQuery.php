@@ -33,6 +33,17 @@ class NativeQuery
         $this->bindings = array_merge($this->bindings, $param);
         return $this;
     }
+    
+    public function noClass()
+    {
+        return $this->toClass(null);
+    }
+
+    public function toClass($class)
+    {
+        $this->parameters->setClass($class);
+        return $this;
+    }
 
     public function debug()
     {
