@@ -1,6 +1,6 @@
 {
   "name": "jeidison/native-query",
-  "description": "Package laravel for save Native query in external file.",
+  "description": "Laravel package for save native query in external file.",
   "license": "MIT",
   "authors": [
     {
@@ -9,12 +9,11 @@
     }
   ],
   "require": {
-    "php": "^7.2",
+    "php": "^7.*",
     "ext-dom": "*"
   },
   "require-dev": {
-    "phpunit/phpunit": "^8.1",
-    "orchestra/testbench": "^3.8"
+    "phpunit/phpunit": "^8.1"
   },
   "autoload": {
     "psr-4": {
