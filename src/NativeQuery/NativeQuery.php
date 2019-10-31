@@ -23,6 +23,19 @@ class NativeQuery
         $this->parameters = $parameters;
     }
 
+    public static function query($queryName): NativeQuery
+    {
+        $parameters = new NativeQueryParameters();
+        $parameters->setQueryName($queryName);
+        return new static($parameters);
+    }
+
+    public function queryFile($queryFile)
+    {
+        $this->parameters->setQueryFile($queryFile);
+        return $this;
+    }
+
     public function param($param, $value = null)
     {
         if (!is_array($param)) {
@@ -33,7 +46,7 @@ class NativeQuery
         $this->bindings = array_merge($this->bindings, $param);
         return $this;
     }
-    
+
     public function noClass()
     {
         return $this->toClass(null);
