@@ -55,7 +55,14 @@ class ModelX extends Model
 # Executing SQL
 
 ```php
-ModelX::nativeQuery('findTab1')->param('par1', 'value1')->exec();
+ModelX::nativeQuery('findTab1')->param('par1', 'value1')->param('par2', 'value2')->exec();
+
 ModelX::nativeQuery('findTab1')->param(['par1' => 'value1'])->exec();
-ModelX::nativeQuery('findTab1')->->debug();
+
+ModelX::nativeQuery('findTab1')->param(['par1' => 'value1'])->->debug();
+
+NativeQuery::query('findTab1')
+            ->queryFile('/path/file-with-queries')
+            ->param('par1', 'value1')
+            ->exec();
 ```
