@@ -21,5 +21,13 @@ trait HasNativeQuery
         $self->nativeQuery = new NativeQuery($parameters);
         return $self->nativeQuery;
     }
+    
+    private function dependsOn($queryName, $params = [], $class = Model::class)
+    {
+        return $this->nativeQuery($queryName)
+            ->param($params)
+            ->toClass($class)
+            ->exec();
+    }
 
 }
