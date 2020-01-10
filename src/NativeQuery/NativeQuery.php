@@ -68,7 +68,13 @@ class NativeQuery
     {
         $query = $this->getSqlAsString();
         if ($this->debug) {
-            return Str::replaceArray('?', $this->bindings, $query);
+            $query = Str::replaceArray('?', $this->bindings, $query);
+            foreach($this->bindings as $key => $binding)
+            {
+                $value = is_numeric($binding) ? $binding : "'".$binding."'";
+                $query = str_replace(":$key", $value, $query);
+            }
+            return $query;
         }
 
         $results = DB::select(DB::raw($query), $this->bindings);
