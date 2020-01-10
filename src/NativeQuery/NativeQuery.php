@@ -140,7 +140,7 @@ class NativeQuery
         $fill = array('*');
         $values = ($fill) ? (array)$data : array_intersect_key((array)$data, array_flip($fill));
         $instance->setRawAttributes($values, true);
-        $instance->exists = true;
+        $instance->exists = false;
         return $instance;
     }
 
