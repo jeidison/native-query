@@ -63,6 +63,11 @@ class NativeQuery
         $this->debug = true;
         return $this->exec();
     }
+    
+    public function first()
+    {
+        return $this->exec()->first();
+    }
 
     public function exec()
     {
