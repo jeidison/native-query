@@ -1,6 +1,6 @@
 <?php
 
-namespace Jeidison\NativeQuery\Providers;
+namespace Jeidison\NativeQuery\Provider;
 
 use Illuminate\Support\ServiceProvider;
 use Jeidison\NativeQuery\NativeQuery\NativeQuery;
