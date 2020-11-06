@@ -29,7 +29,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Jeidison\\NativeQuery\\Providers\\NativeQueryServiceProvider"
+        "Jeidison\\NativeQuery\\Provider\\NativeQueryServiceProvider"
       ],
       "aliases": {
         "NamedQuery": "Jeidison\\NativeQuery\\FacadeNativeQuery"
