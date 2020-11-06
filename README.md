@@ -9,7 +9,7 @@ $ composer require jeidison/native-query
 # Publish Settings
 
 ```bash
-$ php artisan vendor:publish --provider="Jeidison\NativeQuery\Providers\NativeQueryServiceProvider"
+$ php artisan vendor:publish --provider="Jeidison\NativeQuery\Provider\NativeQueryServiceProvider"
 ```
 This will add the nativequery.php file in your config directory with the following contents:
 
