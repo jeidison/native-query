@@ -17,6 +17,7 @@ class NativeQuery
     private $parameters;
     private $bindings = [];
     private $debug = false;
+    private $load = [];
 
     public function __construct(NativeQueryParameters $parameters)
     {
@@ -55,6 +56,12 @@ class NativeQuery
     public function toClass($class)
     {
         $this->parameters->setClass($class);
+        return $this;
+    }
+
+    public function load($load = [])
+    {
+        $this->load = $load;
         return $this;
     }
 
@@ -146,6 +153,7 @@ class NativeQuery
         $values = ($fill) ? (array)$data : array_intersect_key((array)$data, array_flip($fill));
         $instance->setRawAttributes($values, true);
         $instance->exists = false;
+        $instance->load($this->load);
         return $instance;
     }
 
