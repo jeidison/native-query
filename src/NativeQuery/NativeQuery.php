@@ -79,10 +79,22 @@ class NativeQuery
     public function exec()
     {
         $query = $this->getSqlAsString();
+
+        foreach($this->bindings as $paramName => $values) {
+            if (is_array($values) ) {
+                $values = array_filter(array_map(function ($value) {
+                    return is_numeric($value) ? $value : "'".$value."'";
+                }, $values));
+
+                $values = join(',', $values);
+                $query = str_replace(":$paramName", $values, $query);
+                unset($this->bindings[$paramName]);
+            }
+        }
+
         if ($this->debug) {
             $query = Str::replaceArray('?', $this->bindings, $query);
-            foreach($this->bindings as $key => $binding)
-            {
+            foreach($this->bindings as $key => $binding) {
                 $value = is_numeric($binding) ? $binding : "'".$binding."'";
                 $query = str_replace(":$key", $value, $query);
             }
@@ -134,9 +146,9 @@ class NativeQuery
 
     private function toObject($results)
     {
-        if (count($results) == 1) {
-            return collect()->push($this->hydrateObject($results[0]));
-        }
+//        if (count($results) == 1) {
+//            return collect()->push($this->hydrateObject($results[0]));
+//        }
         $listObj = collect();
         foreach ($results as $result) {
             $object = $this->hydrateObject($result);
