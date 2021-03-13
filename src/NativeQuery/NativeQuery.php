@@ -18,6 +18,7 @@ class NativeQuery
     private $bindings = [];
     private $debug = false;
     private $load = [];
+    private $appends = [];
 
     public function __construct(NativeQueryParameters $parameters)
     {
@@ -62,6 +63,12 @@ class NativeQuery
     public function load($load = [])
     {
         $this->load = $load;
+        return $this;
+    }
+
+    public function appends($appends = [])
+    {
+        $this->appends = $appends;
         return $this;
     }
 
@@ -166,6 +173,7 @@ class NativeQuery
         $instance->setRawAttributes($values, true);
         $instance->exists = false;
         $instance->load($this->load);
+        $instance->setAppends($this->appends);
         return $instance;
     }
 
