@@ -5,6 +5,7 @@ namespace Jeidison\NativeQuery;
 use Exception;
 use Jeidison\NativeQuery\NativeQuery\NativeQuery;
 use Jeidison\NativeQuery\NativeQuery\NativeQueryParameters;
+use Illuminate\Database\Eloquent\Model;
 
 trait HasNativeQuery
 {

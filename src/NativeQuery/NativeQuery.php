@@ -153,9 +153,6 @@ class NativeQuery
 
     private function toObject($results)
     {
-//        if (count($results) == 1) {
-//            return collect()->push($this->hydrateObject($results[0]));
-//        }
         $listObj = collect();
         foreach ($results as $result) {
             $object = $this->hydrateObject($result);
@@ -173,7 +170,7 @@ class NativeQuery
         $instance->setRawAttributes($values, true);
         $instance->exists = false;
         $instance->load($this->load);
-        $instance->setAppends($this->appends);
+        $instance->setAppends(array_merge($instance->getAppends(), $this->appends));
         return $instance;
     }
 
