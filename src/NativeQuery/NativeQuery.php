@@ -170,7 +170,7 @@ class NativeQuery
         $instance->setRawAttributes($values, true);
         $instance->exists = false;
         $instance->load($this->load);
-        $instance->setAppends(array_merge($instance->getAppends(), $this->appends));
+        $instance->append($this->appends);
         return $instance;
     }
 
