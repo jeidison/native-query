@@ -102,7 +102,11 @@ class NativeQuery
         if ($this->debug) {
             $query = Str::replaceArray('?', $this->bindings, $query);
             foreach($this->bindings as $key => $binding) {
-                $value = is_numeric($binding) ? $binding : "'".$binding."'";
+                if ($binding === null) {
+                    $value = 'null';
+                } else {
+                    $value = is_numeric($binding) ? $binding : "'".$binding."'";
+                }
                 $query = str_replace(":$key", $value, $query);
             }
             return $query;
