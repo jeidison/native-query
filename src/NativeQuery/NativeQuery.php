@@ -112,7 +112,9 @@ class NativeQuery
             return $query;
         }
 
-        $results = DB::select(DB::raw($query), $this->bindings);
+        $expression = DB::raw($query);
+        $sql = $expression->getValue(DB::connection()->getQueryGrammar());
+        $results = DB::select($sql, $this->bindings);
         if ($this->parameters->getClass() != null) {
             $results = $this->toObject($results);
         }
